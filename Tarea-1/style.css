@@ -1,0 +1,13 @@
+.ocultar{
+    display: none;
+}
+
+.error, #error {
+    border: 2px solid red;
+}
+
+.conclusion{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
