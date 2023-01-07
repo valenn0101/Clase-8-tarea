@@ -57,10 +57,16 @@ function borrarEdades() {
   }
 }
 
+function borrarErrores(){
+  const $errores = document.querySelector("#errores");
+  $errores.innerHTML = "";
+}
+
 $botonCalcular.onclick = function () {
   const $edades = obtenerEdades();
-  validarFormularioEdades();
-  if (hayError === true) {
+  edadesErrores();
+  if (hayError == true) {
+    cambiarBotonResultados(false)
     return;
   }
   mostrarEdad("mayor", mostrarMayor($edades));
@@ -75,7 +81,6 @@ function obtenerEdades() {
   for (let i = 0; i < integrantes.length; i++) {
     edades.push(Number(integrantes[i].value));
   }
-  window.edades = edades;
   return edades;
 }
 
@@ -88,6 +93,7 @@ $botonReiniciar.onclick = function () {
 };
 
 function reiniciar() {
+  borrarErrores();
   borrarEdades();
   cambiarBotonCalcular(false);
   cambiarBotonResultados(false);
